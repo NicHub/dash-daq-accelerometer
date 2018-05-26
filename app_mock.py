@@ -340,7 +340,7 @@ dark_layout = DarkThemeProvider([
                         html.Div([
                             daq.LEDDisplay(
                                 id="display",
-                                value=0.00,
+                                value=1.00,
                                 size=10,
                                 style={'textAlign': 'center'})
                         ], className="two columns",
