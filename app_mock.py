@@ -111,7 +111,7 @@ light_layout = html.Div([
                     html.Div([
                         daq.LEDDisplay(
                             id="display",
-                            value=0.00,
+                            value=1.00,
                             size=10,
                             style={'textAlign': 'center'})
                     ], className="two columns", style={'marginTop': '6px'})
@@ -328,11 +328,11 @@ dark_layout = DarkThemeProvider([
                         html.Div([
                             daq.Slider(
                                 id="slider1",
-                                value=0,
-                                min=0,
+                                value=1,
+                                min=1,
                                 max=16,
                                 step=0.01,
-                                marks={i: str(i) for i in range(0, 17)},
+                                marks={i: str(i) for i in range(1, 17)},
                                 disabled="True",
                                 className="eleven columns")
                         ], className="seven columns",
