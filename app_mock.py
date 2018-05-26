@@ -33,11 +33,6 @@ root_layout = html.Div([
 
 
 light_layout = html.Div([
-    # html.Link(
-    #     href=
-    #     rel="stylesheet"
-    # ),
-
     dcc.Interval(id="stream", interval=1000, n_intervals=0),
     html.Div([
         html.H2("Accelerometer Control Panel",
@@ -78,8 +73,6 @@ light_layout = html.Div([
                 style={'margin': '6px'}
             )
         ], className="row attachment"),
-
-
         html.Hr(style={'marginBottom': '0', 'marginTop': '0'}),
         html.Div([
             html.Div("Version:", className="two columns"),
@@ -108,10 +101,10 @@ light_layout = html.Div([
                         daq.Slider(
                             id="slider1",
                             value=0,
-                            min=0,
+                            min=1,
                             max=16,
                             step=0.01,
-                            marks={i: str(i) for i in range(0, 17)},
+                            marks={i: str(i) for i in range(1, 17)},
                             disabled="True",
                             className="eleven columns")
                     ], className="seven columns", style={'marginTop': '15px'}),
@@ -307,8 +300,6 @@ dark_layout = DarkThemeProvider([
                     style={'margin': '6px'}
                 )
             ], className="row attachment"),
-
-
             html.Hr(style={'marginBottom': '0', 'marginTop': '0'}),
             html.Div([
                 html.Div("Version:", className="two columns"),
