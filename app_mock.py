@@ -17,16 +17,21 @@ app.config['suppress_callback_exceptions'] = True
 server = app.server
 
 root_layout = html.Div([
-    dcc.Interval(id="upon-load", interval=1000, n_intervals=0),
     dcc.Location(id='url', refresh=False),
 
     html.Div([
-            daq.ToggleSwitch(
-                id='toggleTheme',
-                label=['Light Theme', 'Dark Theme'],
-                style={'float': 'right'},
-            ),
-    ]),
+        daq.ToggleSwitch(
+            id='toggleTheme',
+            style={
+                'position': 'absolute',
+                'transform': 'translate(-50%, -50%)'
+            },
+        ),
+    ], id="toggleDiv",
+             style={
+                 'width': 'fit-content',
+                 'margin': '0 auto'
+             }),
 
     html.Div(id='page-content'),
 ])
@@ -40,7 +45,7 @@ light_layout = html.Div([
                        'margin-left': '2%',
                        'display': 'inline-block',
                        'text-align': 'center'}),
-        html.Img(src="https://s3-us-west-1.amazonaws.com/plotly-tutorials/" \
+        html.Img(src="https://s3-us-west-1.amazonaws.com/plotly-tutorials/" +
                      "excel/dash-daq/dash-daq-logo-by-plotly-stripe.png",
                  style={'position': 'relative',
                         'float': 'right',
@@ -99,7 +104,7 @@ light_layout = html.Div([
                     ], className="three columns", style={'marginTop': '10px'}),
                     html.Div([
                         daq.Slider(
-                            id="slider1",
+                            id="change-slider",
                             value=0,
                             min=1,
                             max=16,
@@ -110,7 +115,7 @@ light_layout = html.Div([
                     ], className="seven columns", style={'marginTop': '15px'}),
                     html.Div([
                         daq.LEDDisplay(
-                            id="display",
+                            id="change-display",
                             value=1.00,
                             size=10,
                             style={'textAlign': 'center'})
@@ -122,7 +127,7 @@ light_layout = html.Div([
                     ], className="three columns", style={'marginTop': '10px'}),
                     html.Div([
                         daq.Slider(
-                            id="slider2",
+                            id="data-slider",
                             value=1000,
                             min=1,
                             max=1000,
@@ -133,7 +138,7 @@ light_layout = html.Div([
                     ], className="seven columns", style={'marginTop': '15px'}),
                     html.Div([
                         daq.LEDDisplay(
-                            id="display2",
+                            id="data-display",
                             value=1000,
                             size=10,
                             style={'textAlign': 'center', 'marginTop': '5px'},)
@@ -266,8 +271,8 @@ dark_layout = DarkThemeProvider([
                            'display': 'inline-block',
                            'text-align': 'center'}),
             html.Img(src="https://s3-us-west-1.amazonaws.com/plotly-" +
-                         "tutorials/excel/dash-daq/dash-daq-logo-by-" +
-                         "plotly-stripe+copy.png",
+                     "tutorials/excel/dash-daq/dash-daq-logo-by-" +
+                     "plotly-stripe+copy.png",
                      style={'position': 'relative',
                             'float': 'right',
                             'right': '10px',
@@ -327,7 +332,7 @@ dark_layout = DarkThemeProvider([
                            style={'marginTop': '10px'}),
                         html.Div([
                             daq.Slider(
-                                id="slider1",
+                                id="change-slider",
                                 value=1,
                                 min=1,
                                 max=16,
@@ -339,7 +344,7 @@ dark_layout = DarkThemeProvider([
                                  style={'marginTop': '15px'}),
                         html.Div([
                             daq.LEDDisplay(
-                                id="display",
+                                id="change-display",
                                 value=1.00,
                                 size=10,
                                 style={'textAlign': 'center'})
@@ -353,7 +358,7 @@ dark_layout = DarkThemeProvider([
                            style={'marginTop': '10px'}),
                         html.Div([
                             daq.Slider(
-                                id="slider2",
+                                id="data-slider",
                                 value=1000,
                                 min=1,
                                 max=1000,
@@ -365,7 +370,7 @@ dark_layout = DarkThemeProvider([
                                  style={'marginTop': '15px'},),
                         html.Div([
                             daq.LEDDisplay(
-                                id="display2",
+                                id="data-display",
                                 value=1000,
                                 size=10,
                                 style={'textAlign': 'center',
@@ -521,14 +526,14 @@ def update_connection_indicator(value):
     return value
 
 
-@app.callback(Output("display", "value"),
-              [Input("slider1", "value")])
+@app.callback(Output("change-display", "value"),
+              [Input("change-slider", "value")])
 def update_change_display(value):
     return value
 
 
-@app.callback(Output("display2", "value"),
-              [Input("slider2", "value")])
+@app.callback(Output("data-display", "value"),
+              [Input("data-slider", "value")])
 def update_data_display(value):
     return value
 
@@ -592,4 +597,4 @@ if 'DYNO' in os.environ:
     })
 
 if __name__ == '__main__':
-    app.run_server(port=9000, debug=True)
+    app.run_server(port=8000, debug=True)
