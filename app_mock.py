@@ -71,7 +71,7 @@ light_layout = html.Div([
                 value=True,
                 className="five columns",
                 size=25,
-                style={'marginLeft': '4.75%'}
+                style={'marginLeft': '4.5%'}
             ),
             daq.Indicator(
                 id="connection-est",
@@ -112,7 +112,6 @@ light_layout = html.Div([
                             max=16,
                             step=0.01,
                             marks={i: str(i) for i in range(1, 17)},
-                            disabled="True",
                             className="eleven columns")
                     ], className="seven columns", style={'marginTop': '15px'}),
                     html.Div([
@@ -135,8 +134,7 @@ light_layout = html.Div([
                             max=1000,
                             step=None,
                             marks={0: "0", 500: "500", 1000: "1000"},
-                            className="eleven columns",
-                            disabled=True),
+                            className="eleven columns"),
                     ], className="seven columns", style={'marginTop': '15px'}),
                     html.Div([
                         daq.LEDDisplay(
