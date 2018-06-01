@@ -24,8 +24,9 @@ root_layout = html.Div([
             id='toggleTheme',
             style={
                 'position': 'absolute',
-                'transform': 'translate(-50%, -50%)'
+                'transform': 'translate(-50%, 20%)'
             },
+            size=25
         ),
     ], id="toggleDiv",
              style={
@@ -69,7 +70,8 @@ light_layout = html.Div([
                 label=['Disconnected', 'Connected'],
                 value=True,
                 className="five columns",
-                size=15,
+                size=25,
+                style={'marginLeft': '4.75%'}
             ),
             daq.Indicator(
                 id="connection-est",
@@ -295,8 +297,9 @@ dark_layout = DarkThemeProvider([
                     id='connection',
                     label=['Disconnected', 'Connected'],
                     value=True,
-                    className="five columns",
-                    size=15,
+                    className="four columns",
+                    size=20,
+                    style={'marginLeft': '10%', 'marginTop': '1px'}
                 ),
                 daq.Indicator(
                     id="connection-est",
@@ -338,7 +341,6 @@ dark_layout = DarkThemeProvider([
                                 max=16,
                                 step=0.01,
                                 marks={i: str(i) for i in range(1, 17)},
-                                disabled="True",
                                 className="eleven columns")
                         ], className="seven columns",
                                  style={'marginTop': '15px'}),
@@ -364,8 +366,7 @@ dark_layout = DarkThemeProvider([
                                 max=1000,
                                 step=None,
                                 marks={0: "0", 500: "500", 1000: "1000"},
-                                className="eleven columns",
-                                disabled=True),
+                                className="eleven columns"),
                         ], className="seven columns",
                                  style={'marginTop': '15px'},),
                         html.Div([
@@ -487,7 +488,7 @@ dark_layout = DarkThemeProvider([
         ], className='row z'),
     ], style={'padding': '0px 10px 15px 10px',
               'marginLeft': 'auto', 'marginRight': 'auto', "width": "900px",
-              'boxShadow': '0px 0px 5px 5px rgba(204,204,204,0.4)',
+              'boxShadow': '0px 0px 20px 10px rgba(204,204,204,0.8)',
               'backgroundColor': '#2a3f5f', 'color': 'white'})
 ])
 
