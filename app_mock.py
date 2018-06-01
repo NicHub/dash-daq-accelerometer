@@ -193,7 +193,7 @@ light_layout = html.Div([
                 ], className="row"),
                 html.Div([
                     html.Div(
-                        "TIme Stamp:",
+                        "Time Stamp:",
                         style={'textAlign': 'right'},
                         className="three columns"),
                     html.Div(
@@ -425,7 +425,7 @@ dark_layout = DarkThemeProvider([
                     ], className="row"),
                     html.Div([
                         html.Div(
-                            "TIme Stamp:",
+                            "Time Stamp:",
                             style={'textAlign': 'right'},
                             className="three columns"),
                         html.Div(
