@@ -2,16 +2,9 @@ import dash
 import dash_daq as daq
 import dash_html_components as html
 from dash.dependencies import Input, Output, State
-
-from Phidget22.Devices.Accelerometer import Accelerometer
-from Phidget22.PhidgetException import *
-from Phidget22.Phidget import *
-from Phidget22.Net import *
-
-import sys
-
 import dash_core_components as dcc
 
+from Phidget22.Devices.Accelerometer import Accelerometer
 app = dash.Dash()
 
 app.scripts.config.serve_locally = True
@@ -21,10 +14,9 @@ server = app.server
 
 ch = Accelerometer()
 
-
 app.layout = html.Div([
     dcc.Interval(id="upon-load", interval=1000, n_intervals=0),
-    dcc.Interval(id="stream", interval=1000, n_intervals=0),
+    dcc.Interval(id="stream", interval=500, n_intervals=0),
     html.Div([
         html.H2("Accelerometer Control Panel",
                 style={'color': '#1d1d1d',
@@ -48,7 +40,9 @@ app.layout = html.Div([
     html.Div([
         html.Div([
             html.Div("Attached:", className="two columns"),
-            html.Div("Disconnected", id="device-attached", className="nine columns"),
+            html.Div("Disconnected",
+                     id="device-attached",
+                     className="nine columns"),
             daq.Indicator(
                 id="connection-est",
                 value=False,
@@ -59,13 +53,17 @@ app.layout = html.Div([
         html.Hr(style={'marginBottom': '0', 'marginTop': '0'}),
         html.Div([
             html.Div("Version:", className="two columns"),
-            html.Div("Disconnected", id="device-version", className="four columns"),
+            html.Div("Disconnected",
+                     id="device-version",
+                     className="four columns"),
             html.Div("Serial Number:", className="two columns"),
             html.Div("Disconnected", id="device-serial")
         ], className="row version-serial"),
         html.Div([
             html.Div("Channel: ", className="two columns"),
-            html.Div("Disconnected", id="device-channel", className="four columns"),
+            html.Div("Disconnected",
+                     id="device-channel",
+                     className="four columns"),
         ], className="row channel")
     ]),
 
@@ -263,6 +261,7 @@ def stream_z(_, connection):
         return str(ch.getAcceleration()[2])
     return str(0)
 
+
 @app.callback(Output("time-stamp", "children"),
               [Input("stream", "n_intervals")])
 def time_stamp(time):
@@ -293,7 +292,6 @@ def stream_zgauge(_, connection):
         return ch.getAcceleration()[2]
 
 
-
 @app.callback(Output("device-attached", "children"),
               [Input("connection-est", "value")])
 def device_name(connection):
@@ -321,9 +319,10 @@ def device_channel(connection):
     if connection is True:
         return str(ch.getChannel())
 
+
 @app.callback(Output("connection-est", "value"),
               [Input("upon-load", "n_intervals")])
-def change_interval(_):
+def connection_established(_):
     try:
         ch.openWaitForAttachment(5000)
     except:
@@ -335,7 +334,7 @@ def change_interval(_):
 @app.callback(Output("upon-load", "interval"),
               [Input("upon-load", "n_intervals"),
                Input("connection-est", "value")])
-def change_interval(_, connection):
+def load_once(_, connection):
     if connection is True:
         return 3.6E6
     return 1000
@@ -343,14 +342,14 @@ def change_interval(_, connection):
 
 @app.callback(Output("change-display", "value"),
               [Input("change-slider", "value")])
-def update_led(value):
+def update_change_display(value):
     ch.setAccelerationChangeTrigger(value)
     return value
 
 
 @app.callback(Output("data-display", "value"),
               [Input("data-slider", "value")])
-def update_led2(value):
+def update_data_display(value):
     return value
 
 
@@ -367,6 +366,7 @@ def update_interval(value):
 def update_slider1(connection):
     if connection:
         return ch.getAccelerationChangeTrigger()
+
 
 external_css = ["https://codepen.io/chriddyp/pen/bWLwgP.css",
                 "https://cdn.rawgit.com/samisahn/dash-app-stylesheets/" +
