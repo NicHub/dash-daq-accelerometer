@@ -107,7 +107,7 @@ light_layout = html.Div([
                     html.Div([
                         daq.Slider(
                             id="change-slider",
-                            value=0,
+                            value=1,
                             min=1,
                             max=16,
                             step=0.01,
@@ -130,7 +130,7 @@ light_layout = html.Div([
                         daq.Slider(
                             id="data-slider",
                             value=1000,
-                            min=1,
+                            min=0,
                             max=1000,
                             step=None,
                             marks={0: "0", 500: "500", 1000: "1000"},
@@ -360,7 +360,7 @@ dark_layout = DarkThemeProvider([
                             daq.Slider(
                                 id="data-slider",
                                 value=1000,
-                                min=1,
+                                min=0,
                                 max=1000,
                                 step=None,
                                 marks={0: "0", 500: "500", 1000: "1000"},
