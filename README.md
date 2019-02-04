@@ -57,7 +57,7 @@ The measured data detected on x, y and z axes is gathered from the device, and w
 
 ### The Phidgets device
 
-Technical details about Phidgets 1041_B could be found in [**phidget User Guide**](https://www.phidgets.com/?tier=3&catid=10&pcid=8&prodid=1022).
+Technical details about Phidgets 1041_B could be found in [**Phidget User Guide**](https://www.phidgets.com/?tier=3&catid=10&pcid=8&prodid=1022).
 
 ### Dash
 Dash abstracts away all of the technologies and protocols required to build an interactive web-based application, and is a simple and effective way to bind a user interface around your Python code. To learn more about Dash, check out our [documentation](https://dash.plot.ly/).
