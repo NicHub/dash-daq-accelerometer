@@ -1,8 +1,9 @@
 # Dash DAQ Accelerometer
 
+## Introduction
 A dash application which facilitates the controlling of Phidgets 1041_B Accelerometer. Try out [this app](https://dash-gallery.plotly.host/dash-daq-accelerometer) and learn more about this application from our [blog entry](https://www.dashdaq.io/read-data-from-a-phidgets-accelerometer).
 
-## Phidgets accelerometer
+### Phidgets accelerometer
 The Phidgets Spatial is a 3-axis accelerometer that :
 - Track whether an object is moving, and in which direction (x, y, z)
 - Detect the presence of nearby movement or vibration
@@ -10,7 +11,7 @@ The Phidgets Spatial is a 3-axis accelerometer that :
 
 The 1041 device can measure ±8 g's (±78 m/s2) per axis. It could be connected to your computer via USB and programmatically tracked. Phidgets provide resourceful [API](https://www.phidgets.com/?view=api) for programmers.
 
-## Dash-daq
+### Dash-daq
 [Dash DAQ](http://dash-daq.netlify.com/#about) is a data acquisition and control package built on top of Plotly's [Dash](https://plot.ly/products/dash/). It comprises a robust set of controls that make it simpler to integrate data acquisition and controls into your Dash applications.
 
 ## Requirements
