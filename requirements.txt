@@ -1,10 +1,10 @@
 gunicorn>=19.7.1
-plotly>=2.0.9
-dash==0.21.1
-dash-renderer==0.12.1
-dash-html-components==0.10.1
-dash-core-components==0.21.0rc1
-numpy==1.14.1
-dash_daq-0.0.2.tar.gz
+plotly==3.5.0
+dash==0.36.0
+dash-daq==0.1.0
+dash-renderer==0.17.0
+dash-html-components==0.13.5
+dash-core-components==0.43.0
+numpy==1.15.1
 pylint
 flake8
