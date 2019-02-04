@@ -1,8 +1,9 @@
 # Dash DAQ Accelerometer
 
-A dash application which facilitates the controlling of Phidgets 1041_B Accelerometer. Try out [this app](https://dash-gallery.plotly.host/dash-daq-accelerometer) and learn more about this application from our [blog entry](https://www.dashdaq.io/read-data-from-a-phidgets-accelerometer).
+## Introduction
+A dash application which facilitates the controlling of Phidgets 1041_B Accelerometer. [Try out this app](https://dash-gallery.plotly.host/dash-daq-accelerometer) and learn more about this application from our [blog entry](https://www.dashdaq.io/read-data-from-a-phidgets-accelerometer).
 
-## Phidgets accelerometer
+### Phidgets accelerometer
 The Phidgets Spatial is a 3-axis accelerometer that :
 - Track whether an object is moving, and in which direction (x, y, z)
 - Detect the presence of nearby movement or vibration
@@ -10,8 +11,11 @@ The Phidgets Spatial is a 3-axis accelerometer that :
 
 The 1041 device can measure ±8 g's (±78 m/s2) per axis. It could be connected to your computer via USB and programmatically tracked. Phidgets provide resourceful [API](https://www.phidgets.com/?view=api) for programmers.
 
-## Dash-daq
+### Dash-daq
 [Dash DAQ](http://dash-daq.netlify.com/#about) is a data acquisition and control package built on top of Plotly's [Dash](https://plot.ly/products/dash/). It comprises a robust set of controls that make it simpler to integrate data acquisition and controls into your Dash applications.
+
+## How to use the app
+There are two versions of this application. A mock version for the user to play with, without any instruments connected, and a local version, that can be connected to a device.
 
 ## Requirements
 We suggest you to create a virtual environment for python3 to run this app. To do so, run:
@@ -28,8 +32,12 @@ To install all of this app-specific required packages to this environment, simpl
 pip install -r requirements.txt
 ```
 
-## How to run mock app
-To run mock app, simply run in command line(or Terminal for Linux/MacOS) like:
+## Local application 
+
+
+
+## Mock application
+To run __**mock version**__, simply run in command line(or Terminal for Linux/MacOS):
 
 ```
 python app_mock.py
@@ -41,7 +49,7 @@ And you will see the following prompt:
 
 Open the web address in your browser:  
 
-![changefail](screenshots/openport.png)
+![changefail](screenshots/openport.jpg)
 
 You will see the control panel of the accelerometer, with your device information displayed at the top. The app is ready-to-use.
 
@@ -57,7 +65,7 @@ The measured data detected on x, y and z axes is gathered from the device, and w
 
 ### The Phidgets device
 
-Technical details about Phidgets 1041_B could be found in [**phidget User Guide**](https://www.phidgets.com/?tier=3&catid=10&pcid=8&prodid=1022).
+Technical details about Phidgets 1041_B could be found in [**Phidget User Guide**](https://www.phidgets.com/?tier=3&catid=10&pcid=8&prodid=1022).
 
 ### Dash
 Dash abstracts away all of the technologies and protocols required to build an interactive web-based application, and is a simple and effective way to bind a user interface around your Python code. To learn more about Dash, check out our [documentation](https://dash.plot.ly/).
