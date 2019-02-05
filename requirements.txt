@@ -8,3 +8,4 @@ dash-core-components==0.43.0
 numpy==1.15.1
 pylint
 flake8
+Phidget22==1.0.0
