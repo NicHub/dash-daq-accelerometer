@@ -37,7 +37,11 @@ If you would like to run the __**local version**__, connect the PhidgetSpatial d
 ```
 python app.py
 ```
-Open the web address in your browser,you will see the control panel of the accelerometer, with your device information displayed at the top. 
+Open the web address in your browser:
+
+![changefail](screenshots/openport.png)
+
+You will see the control panel of the accelerometer, with your device information displayed at the top. 
 The app is ready-to-use. 
 
 ![changefail](screenshots/accelerometer.png)
@@ -57,7 +61,11 @@ Open the web address in your browser:
 
 ![changefail](screenshots/openport.png)
 
-The control panel of your accelerometer will be displayed. To change to a dark theme layout, click on the toggle switch at the top of the page. 
+The control panel of your accelerometer will be displayed. 
+![changefail](screenshots/accelerometer.png)
+
+The mock version allows you to change to a dark theme layout, click on the toggle switch at the top of the page:
+![changefail](screenshots/accelerometer_dark.png)
 
 ### Controls
 * Connection Toggle: Disconnect and connect to the device, indicator will light up when Dash DAQ is connected to the device.
@@ -71,7 +79,7 @@ The measured data detected on x, y and z axes is gathered from the device, and w
 
 ### About the Phidgets instruments
 
-Technical details about Phidgets 1041_B could be found in [**Phidget User Guide**](https://www.phidgets.com/?tier=3&catid=10&pcid=8&prodid=1022).
+Technical details about Phidgets 1041_B can be found in [**Phidget User Guide**](https://www.phidgets.com/?tier=3&catid=10&pcid=8&prodid=1022).
 
 ### Dash
 Dash abstracts away all of the technologies and protocols required to build an interactive web-based application, and is a simple and effective way to bind a user interface around your Python code. To learn more about Dash, check out our [documentation](https://dash.plot.ly/).
